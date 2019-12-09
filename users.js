@@ -1,4 +1,4 @@
-const users = [
+let vipmod = [
     'Black Storm',
     'Broke',
     'Delta',
@@ -45,4 +45,8 @@ const users = [
     'Amon_Ra',
     'koostik',
     'faktoriana',
-    ];
+];
+
+let vipmods={};
+vipmod.forEach( (el) => { vipmods[el]=true} );
+vipmod=null;
