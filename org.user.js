@@ -9,5 +9,5 @@
 // @match        https://openhide.biz/*
 // @require      users.js?4
 // @require      participantColor.js?4
-// @require      calculator.js?5
+// @require      calculator.js?2
 // ==/UserScript==
