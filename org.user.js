@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OpenHide_Org
 // @namespace    openhide
-// @version      0.5
+// @version      0.41
 // @grant        GM_addStyle
 // @description  Additional features for OpenHide.biz
 // @author       Rbex, Veenom, IRobot
