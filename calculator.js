@@ -216,13 +216,13 @@ try{
 .estimate {
     position: absolute;
     z-index: 9999;
-    margin-top: -430px;
+    margin-top: -420px;
     margin-left: -10px;
 }
 .estimate--popup {
 
     width: 280px;
-    height: 385px;
+    min-height: 370px;
 
     background-color: #f4f4f4;
     border: 2px solid #c8c8c8;
