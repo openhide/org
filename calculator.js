@@ -216,7 +216,7 @@ try{
 .estimate {
     position: absolute;
     z-index: 9999;
-    margin-top: -420px;
+    margin-top: -430px;
     margin-left: -10px;
 }
 .estimate--popup {
