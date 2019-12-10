@@ -221,7 +221,7 @@ try{
 }
 .estimate--popup {
 
-    width: 260px;
+    width: 280px;
     height: 385px;
 
     background-color: #f4f4f4;
