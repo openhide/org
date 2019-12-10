@@ -49,7 +49,7 @@ try{
         10276,
     ];
 
-    let countPaidRezerv = 0;
+    let $countPaidRezerv = 0;
     let countPaidMain= 0;
     let countVipId = 0;
     //let userIdArr = [];
@@ -59,7 +59,7 @@ try{
         if (userRezerv !== null) {
             let userPaidRezerv = users[i].querySelector( '.estcs-flag-paid');
             if (userPaidRezerv !== null) {
-                ++countPaidRezerv;
+                ++$countPaidRezerv;
                 let userId = +userRezerv.getAttribute('data-user_id');
                 for (let keyUsers in vipModId) {
                     if (userId === vipModId[keyUsers]) {
@@ -92,7 +92,7 @@ try{
     let usersNotPay = countVipId;
 
     /* Вычисляем актуальное количество оплативших */
-    countPaidRezerv = countPaidRezerv - usersNotPay;
+    let countPaidRezerv = $countPaidRezerv - usersNotPay;
     let countTotalPaid = (countPaidRezerv + countPaidMain);
 
     /* Парсим расчетный взнос и сохраняем значение в переменную "payment" */
@@ -142,7 +142,6 @@ try{
                                     <label for="free" class="estimate--participateFree"> Участвуют бесплатно:</label> <input type="number" min="0" max="${countPaidRezerv}" id="free">
                                </div>`;
 
-    let _countPaidRezerv = 0;
     let check = localStorage.getItem('key');
     let inputFree = document.getElementById('free'),
         ddCountPaidRezerv = document.getElementById('countPaidRezerv'),
@@ -161,19 +160,19 @@ try{
 
     inputFree.addEventListener('input', () => {
         usersNotPay = inputFree.value;
-        _countPaidRezerv = countPaidRezerv - usersNotPay;
-        if (_countPaidRezerv < 0) {
-            _countPaidRezerv = 0;
+        countPaidRezerv = $countPaidRezerv - usersNotPay;
+        if (countPaidRezerv < 0) {
+            countPaidRezerv = 0;
         }
 
-        countTotalPaid = (_countPaidRezerv + countPaidMain);
-        amountRezerv = (payment * _countPaidRezerv);
+        countTotalPaid = (countPaidRezerv + countPaidMain);
+        amountRezerv = (payment * countPaidRezerv);
         amountRezerv = amountRezerv + (amountRezerv / 100 * 30);
         amountRezerv = Math.round(amountRezerv);
         amountTotal = (amountMain + amountRezerv);
         commission = Math.round(amountRezerv / 100 * 20);
 
-        ddCountPaidRezerv.innerText = `Резервный список: ${_countPaidRezerv}`;
+        ddCountPaidRezerv.innerText = `Резервный список: ${countPaidRezerv}`;
         ddcountTotalPaid.innerText = `Общее количество: ${countTotalPaid}`;
         ddamountRezerv.innerText = `Резервный список: ${amountRezerv}`;
         ddamountTotal.innerText = `Общая сумма: ${amountTotal}`;
