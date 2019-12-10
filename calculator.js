@@ -93,6 +93,7 @@ try{
 
     /* Вычисляем актуальное количество оплативших */
     let countPaidRezerv = $countPaidRezerv - usersNotPay;
+    let maxPaid = $countPaidRezerv;
     let countTotalPaid = (countPaidRezerv + countPaidMain);
 
     /* Парсим расчетный взнос и сохраняем значение в переменную "payment" */
@@ -145,7 +146,7 @@ try{
                                         <dt class="estimate--list-dt">Примечание для перевода</dt>
                                             <dd class="estimate--list-dd" id="commission">["${accountUsername}" - "комиссия" "${thread_id}"]</dd>
                                     </dl>
-                                    <label for="free" class="estimate--participateFree"> Участвуют бесплатно:</label> <input type="number" min="0" max="${countPaidRezerv}" id="free">
+                                    <label for="free" class="estimate--participateFree"> Участвуют бесплатно:</label> <input type="number" min="0" max="${maxPaid}" id="free">
                                </div>`;
 
     let check = localStorage.getItem('key');
