@@ -123,6 +123,10 @@ try{
     btnServiceFee.classList.add("estimate--btn");
     divServiceFee.after(btnServiceFee);
 
+    let accountUsername = document.querySelector('.accountUsername');
+    accountUsername = document.querySelector('.fa-user');
+    accountUsername = accountUsername.getAttribute('title');
+
     divServiceFee.innerHTML = `<div class="estimate--popup estimate_none">
                                     <dl class="estimate--list">
                                         <dt class="estimate--list-dt">Расчетный взнос</dt>
@@ -138,6 +142,8 @@ try{
                                             <dd class="estimate--list-dd" id="amountTotal">Общая сумма: ${amountTotal} RUB</dd>
                                         <dt class="estimate--list-dt">Комиссия сервиса</dt>
                                             <dd class="estimate--list-dd" id="commission">Резервный список: ${commission} RUB</dd>
+                                        <dt class="estimate--list-dt">Примечание для перевода</dt>
+                                            <dd class="estimate--list-dd" id="commission">["${accountUsername}" - "комиссия" "${thread_id}"]</dd>
                                     </dl>
                                     <label for="free" class="estimate--participateFree"> Участвуют бесплатно:</label> <input type="number" min="0" max="${countPaidRezerv}" id="free">
                                </div>`;
@@ -216,7 +222,7 @@ try{
 .estimate--popup {
 
     width: 260px;
-    height: 350px;
+    height: 370px;
 
     background-color: #f4f4f4;
     border: 2px solid #c8c8c8;
